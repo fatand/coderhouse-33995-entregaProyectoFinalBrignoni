@@ -1,6 +1,5 @@
 
-const carritoDeCompras = []
-
+const carritoDeCompras = [];
 
 const carritoIndex = (productoId)=>{
     const contenedorCarrito = document.getElementById("carrito-contenedor")
