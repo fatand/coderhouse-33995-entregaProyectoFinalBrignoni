@@ -3,40 +3,6 @@
 let sectionProductsMen = document.getElementById("sectionProductsMen");
 
 
-//RENDERIZA EL CATALOGO EN sectionProductsMen
-
-/* for (const producto of catalogoHombres) {
-    let div = document.createElement("div");
-    div.innerHTML = `<img src="../img/${producto.img}" alt="${producto.id}">
-                    <p> ${producto.nombre} </p>
-                    <b> $ ${producto.precio} </b>
-                    <button id="agregar${producto.id}">Agregar al carrito</button>`;
-    div.className = "product-block";
-    sectionProductsMen.append(div);
-
-    const boton = document.getElementById(`agregar${producto.id}`);
-   
-    boton.addEventListener('click', ()=> {
-        // alert(`Se agrego el producto ${producto.nombre} al carrito de compras.`);
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            text: `Se agrego el producto ${producto.nombre} al carrito de compras.`,
-            imageUrl: `../img/${producto.img}`,
-            imageWidth: 200,
-            imageAlt: `${producto.id}`,
-            showConfirmButton: true,
-            // timer: 1500
-          })
-        carritoIndex(producto.id);
-        // carritoIndex2(producto.id);
-
-        
-/*         localStorage.setItem(`productoCarrito${producto.id}`,JSON.stringify(producto));
-        carritoStorage.append(`productoCarrito${producto.id}`) */
-/*     })
-    
-};  */
 
 const catalogoHombres = [];
 

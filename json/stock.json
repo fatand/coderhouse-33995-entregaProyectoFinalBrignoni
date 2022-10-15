@@ -5,10 +5,10 @@
     {"id": 4, "nombre": "Short Negro", "precio": 1090, "img": "men-product4.jpg","categoria": "Shorts", "recienLlegado": false, "sale": false, "cant":0},
     {"id": 5, "nombre": "Medias", "precio": 450, "img": "men-product5.jpg", "categoria": "Accesorios", "recienLlegado": true, "sale": false, "cant":0},
     {"id": 6, "nombre": "Buzo Fluor", "precio": 1590, "img": "men-product6.jpg", "categoria": "Buzos", "recienLlegado": true, "sale": false, "cant":0},
-    {"id": 7, "nombre": "Remera Verde", "precio": 790, "img": "men-product1.jpg", "categoria": "Remeras", "recienLlegado": true, "sale": false, "cant":0},
-    {"id": 8, "nombre": "Remera Rosada", "precio": 690, "img": "men-product2.jpg", "categoria": "Remeras", "recienLlegado": true, "sale": false, "cant":0},
-    {"id": 9, "nombre": "Short Azul", "precio": 1190, "img": "men-product3.jpg", "categoria": "Shorts", "recienLlegado": false, "sale": true, "cant":0},
-    {"id": 10, "nombre": "Short Negro", "precio": 1090, "img": "men-product4.jpg","categoria": "Shorts", "recienLlegado": false, "sale": false, "cant":0},
-    {"id": 11, "nombre": "Medias", "precio": 450, "img": "men-product5.jpg", "categoria": "Accesorios", "recienLlegado": true, "sale": false, "cant":0},
-    {"id": 12, "nombre": "Buzo Fluor", "precio": 1590, "img": "men-product6.jpg", "categoria": "Buzos", "recienLlegado": true, "sale": false, "cant":0}
+    {"id": 7, "nombre": "Remera Verde2", "precio": 790, "img": "men-product1.jpg", "categoria": "Remeras", "recienLlegado": true, "sale": false, "cant":0},
+    {"id": 8, "nombre": "Remera Rosada2", "precio": 690, "img": "men-product2.jpg", "categoria": "Remeras", "recienLlegado": true, "sale": false, "cant":0},
+    {"id": 9, "nombre": "Short Azul2", "precio": 1190, "img": "men-product3.jpg", "categoria": "Shorts", "recienLlegado": false, "sale": true, "cant":0},
+    {"id": 10, "nombre": "Short Negro2", "precio": 1090, "img": "men-product4.jpg","categoria": "Shorts", "recienLlegado": false, "sale": false, "cant":0},
+    {"id": 11, "nombre": "Medias2", "precio": 450, "img": "men-product5.jpg", "categoria": "Accesorios", "recienLlegado": true, "sale": false, "cant":0},
+    {"id": 12, "nombre": "Buzo Fluor2", "precio": 1590, "img": "men-product6.jpg", "categoria": "Buzos", "recienLlegado": true, "sale": false, "cant":0}
 ]

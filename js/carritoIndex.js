@@ -1,17 +1,38 @@
 
-const carritoDeCompras = [];
+// const carritoDeCompras = JSON.parse(carritoStorage) || [];
+
+// console.log(carritoDeCompras);
+
+let carritoStorage2 = localStorage.getItem("carritoDeCompras");
+const carritoDeCompras = JSON.parse(carritoStorage2) || [];
+console.log(`INICIO carritoDeCompras`);
+console.log(carritoDeCompras);
+console.log(`FIN carritoDeCompras`);
+
+// const carritoDeCompras = [];
+// console.log(`carritoDeCompras = ${carritoDeCompras}`);
 
 const carritoIndex = (productoId)=>{
     const contenedorCarrito = document.getElementById("carrito-contenedor")
-
+    
      const agregarProductoACarrito = ()=> {
-      let producto  = catalogoHombres.find( producto => producto.id == productoId )
+      let producto = carritoDeCompras.find( producto => producto.id == productoId ) || catalogoHombres.find( producto => producto.id == productoId );
+      console.log(producto);
+      console.log(carritoDeCompras);
+      console.log(`producto.cant = ${producto.cant}`);
+
+      console.log(carritoDeCompras.map(producto => producto.id).includes(producto.id));
+      if (carritoDeCompras.map(producto => producto.id).includes(producto.id)){
+        producto.cant = producto.cant +1;        
+        console.log("FUNCIONA");
+        console.log(`producto.cant = ${producto.cant}`);
+      } else {
       if (producto.cant == 0) {
         producto.cant = producto.cant +1;
         carritoDeCompras.push(producto)
-      } else {
-        producto.cant = producto.cant +1;
       }
+    }
+      console.log("CONSOLE LOG DE carrito");
       console.log(carritoDeCompras);
       localStorage.setItem("carritoDeCompras", JSON.stringify(carritoDeCompras))
     }
