@@ -1,0 +1,102 @@
+footer{
+    grid-area: footer;
+    background-color: $color-secondary;
+    padding: 10px 10px 10px 10px;
+    margin: 0 0 0 0;
+    font-family: $font-style-brand, sans-serif;
+    font-weight: 100;
+    display: flex;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    img{
+        height:30px;
+    }
+    ul{
+        list-style-type:none;
+        margin: 0 0 20px 0;
+        display: block;
+    }
+}
+
+.social-icons li{
+    margin:0 10px;
+    align-items: center;
+}
+
+
+.footer-contact{
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    h4{
+        text-align: center;
+    }
+}
+
+.contact-data{
+    display: flex;
+    flex-direction: row;
+    li{
+        padding: 0px 5px 0px 5px;
+    }
+}
+
+.company-name{
+    color: $color-primary;
+    text-align: center;
+    font-family: $font-style-brand, sans-serif;
+    font-weight: 700;
+    display: inline-block;
+    padding:5px 10px;
+    margin: 0;
+    font-size: 25px;
+    vertical-align: center;
+}
+
+.social-icons{
+    margin:0;
+    padding:5px 5px;
+    display: inline-block;
+    li{
+        margin:0 10px;
+        align-items: center;
+        display: inline-block;
+    }    
+}
+
+
+/* ********************************** */
+/* AGREGO MEDIA QUERIES A footer.html*/
+/* ********************************** */
+
+@media screen and (min-width:768px) {
+    footer{
+        padding: 10px 10px 10px 10px;
+        flex-direction: row;
+    }
+        
+    .contact-data{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:425px) {
+
+    .footer-contact ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .footer-contact ul li{
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+

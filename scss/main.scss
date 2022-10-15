@@ -1,0 +1,656 @@
+//ESTILOS PARA LOS MAINS
+
+main{
+    grid-area: main;
+    background-color: $color-third;
+    font-family: $font-style-brand, sans-serif;
+    font-weight: 100;
+}
+
+span{
+    font-weight: bold;
+}
+
+.h2-name{
+    padding:  0 0 0 0;
+    color: $color-primary;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.h2-women{
+    padding:  0 0 0 0;
+    color: $color-primary;
+    text-align: left;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.h2-contact{
+    padding:  0 0 0 0;
+    color: $color-primary;
+    text-align: left;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.h2-cart{
+    padding:  0 0 0 0;
+    color: $color-primary;
+    text-align: left;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+}
+
+
+h3{
+    color: black;
+    display: inline-block;
+    padding: 0 0 0 10px;
+    font-weight: bold;
+    font-size: 16px;
+    grid-area: h3;
+}
+
+h4{
+    color: black;
+    display: inline-block;
+    padding: 0 0 0 10px;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    grid-area: h4;
+}
+
+.h3-frase{
+    // color: $color-third;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 10px;
+    margin: 0;
+    animation-name: movimiento-frase;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+}
+
+@keyframes movimiento-frase {
+    0%{
+        transform: scale(1.2);
+
+    }
+
+    50%{
+        transform: scale(1);      
+    }
+
+    100%{
+        transform: scale(1.2);
+    }
+
+}
+
+.texto-empresa{
+    text-align: center;
+}
+
+.frase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background: $color-primary;
+    color: $color-third;
+    height: 50px;
+}
+
+// .bg-pattern-frase{
+//     background-color: #004225;
+//     opacity: 1;
+//     background: linear-gradient(135deg, #abb1b855 25%, transparent 25%) -12px 0/ 24px 24px, linear-gradient(225deg, #abb1b8 25%, transparent 25%) -12px 0/ 24px 24px, linear-gradient(315deg, #abb1b855 25%, transparent 25%) 0px 0/ 24px 24px, linear-gradient(45deg, #abb1b8 25%, #004225 25%) 0px 0/ 24px 24px;
+// }
+
+p{
+    padding:10px;
+}
+
+.p-genero{
+    color: black;
+    display: inline-block;
+    padding: 0 20vw;
+    margin-top:1em;
+    font-weight: bold;
+}
+
+
+.banner{
+    display: inline-block;
+    width: 100vw;
+}
+
+.select-catalogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px rgb(255, 255, 255);
+}
+
+.select-gender{
+    background-color: rgb(255, 255, 255);
+    border: solid 3px rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    max-width: 700px;
+
+    img{
+        border-radius: 50px;
+        width: 40vw;
+        border: solid 3px rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        max-width: 600px;
+    }
+}
+
+.copyright{
+    text-align: center;
+}
+
+.map{
+    height: 250px;
+    width: 300px;
+    border-radius: 20px;
+}
+
+//ESTILO PARTICULAR A contact.html
+
+.main-contacto{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+
+    margin: 0 0 10px 0;
+}
+
+.formulario{
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    input{
+        color: white;
+        margin: 0 10px;
+        padding: 5px;
+        border: none;
+        border-radius: 10px;
+        background-color: $color-primary;
+        &:hover{
+        border-radius: 10px;
+        background-color:$color-fourth;
+    }
+    }
+}
+
+.form-log-in{
+    label{
+    margin: 5px;
+    }
+    input{
+        margin: 5px;
+    }
+    button{
+        @extend .boton;
+    }
+}
+
+.div-contact{
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    ul{
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        li{
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+
+.contact-map{
+    display: flex;
+    justify-content: center;
+}
+
+//ESTILO PARTICULAR A cart.html
+
+.main-cart{
+    display: grid;
+    grid-template-areas: 
+    "cart-section1"
+    "cart-aside"
+    ;
+
+    justify-content: center;
+    align-items: center;
+    button{
+        border: none;
+        border-radius: 10px;
+        background-color: $color-primary;
+        &:hover{
+        border-radius: 10px;
+        background-color:$color-fourth;
+        }
+    }
+}
+
+.cart-section1{
+    grid-area: cart-section1 ;
+
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 10px;
+    img{
+        height: 200px;
+        border-radius: 10px;
+    }
+    p{
+        // margin: 0;
+        padding: 2px;
+    }
+}
+
+.cart-product1{
+    display: flex;
+    margin: 10px;
+    display: flex;
+    border: solid 3px #004225;
+    border-radius: 10px;
+    align-items: center;
+    min-width: 300px;
+    img{
+        margin: 10px;
+    }
+}
+
+.product1-details{
+    margin:5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:2px;
+
+    p, b, button{
+        padding:5px;
+        margin: 5px;
+    }
+}
+
+.cart-aside{
+    margin: 10px 0 10px 0;
+    padding: 0 0 0 0;
+    grid-area: cart-aside ;
+    background-color: rgb(255, 255, 255);
+
+    justify-content: center;
+    h2{
+        text-align: center;
+    }
+    p{
+        margin: 0;
+        padding: 2px;
+    }
+}
+
+.total{
+    display: flex;
+    margin: 0 0 10px 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-value{
+    width: 100px;
+    text-align: right;
+    border: solid 3px rgb(255, 255, 255);
+}
+
+.p-total-value{
+    font-weight: bold;
+    border-top: solid 2px $color-primary;
+}
+
+.pagar-button{
+    border: solid 2px rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;        
+
+}
+
+//ESTILO PARTICULAR A log-in.html
+
+.log-in-main{
+    margin: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    height:75vh;
+    div h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+.form-log-in{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    button{
+        border: none;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            border-radius: 10px;
+            background-color:$color-fourth;
+        }
+    }
+}
+
+
+
+//ESTILO PARTICULAR A women.html Y men.html. SE DEJA LAS CLASES CON WOMEN PERO SIRVE PARA LAS 2 PAGINAS
+
+
+.main-women{
+    margin: 10px 0 0 0;
+    grid-area: main-women;
+
+    display: grid;
+    grid-template-areas: 
+    "h2 botonesFiltros"
+    "left-bar section-products"
+    "size-chart size-chart";
+    h2{
+        padding: 0 0 0 10px;
+        margin: 10px;
+        grid-area: h2;
+    }
+    
+}
+
+.botonesFiltros{
+    grid-area: botonesFiltros ;
+    display:flex;
+    flex-direction: row;
+    justify-content: right;
+    button{
+        margin: 5px;
+        background-color: #004225;
+        color: white;
+        border: solid 3px rgb(255, 255, 255);
+        border-radius: 15px;
+    }
+   
+}
+
+.left-bar{
+    grid-area: left-bar ;
+    margin: 10px 0 0 10px;
+    padding: 0 0 0 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 10px;
+    ul{
+        padding: 0 10px;
+        list-style-type: none;
+       li{
+            button{
+                font-style: normal;
+                color:rgb(0, 0, 0);
+                text-decoration:none;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+            }
+        }
+    }
+}
+
+.section-products{
+    margin: 10px;
+    grid-area: section-products ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    img{
+        height: 60%;
+    }
+    p{
+        padding: 0;
+        margin: 0;
+        border: solid 3px rgb(255, 255, 255);
+    }
+    button{
+        margin: 5px;
+        background-color: #004225;
+        color: white;
+        border: solid 3px rgb(255, 255, 255);
+        border-radius: 15px;
+    }
+}
+
+
+.product-block{
+    height: 300px;
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    img{
+        width: auto;
+        margin: 10px;
+    }
+}
+
+.size-chart{
+    padding: 10px 0 30px 0;
+    grid-area: size-chart ;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 2px #004225;
+}
+
+.heading-size{
+    font-size: 20x;
+}
+
+.size-gender{
+    font-size: 16px;
+}
+
+//ESTILO A TABLA DENTRO DE women.html Y men.html
+
+.width-80percentage{
+    width: 80%;
+}
+
+table{
+    justify-content: center;
+    align-items: center;
+}
+
+td, th {
+    border: 1px solid black;
+    border-radius: 0px;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+
+  }
+  
+  tr:nth-child(even){background-color: $color-fourth;}
+ 
+  
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: $color-primary!important;
+    color: white;
+  }
+
+  /* ANIMACION A SALE */
+#btnSale{
+    font-weight: 800;
+    animation-name: movimiento-sale;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+}
+
+.left-bar-sale{
+    font-weight: 700;
+    animation-name: movimiento-sale;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+}
+
+@keyframes movimiento-sale {
+    0%{
+        color: red;
+        font-weight: 700;
+    }
+
+    25%{
+        color: rgb(0, 0, 0);
+    }
+
+    75%{
+        color: red;
+        font-weight: 700;
+    }
+
+    100%{
+        color: rgb(0, 0, 0);
+    }
+
+}
+/* FIN ANIMACION A SALE */
+
+/* ********************************** */
+/* AGREGO MEDIA QUERIES*/
+/* ********************************** */
+@media screen and (min-width:768px) {
+
+    /* AGREGO MEDIA QUERIES AL MAIN del INDEX*/
+
+    .select-catalogo{
+        flex-direction: row;
+    }
+
+    /* AGREGO MEDIA QUERIES AL MAIN DEL CART*/
+    .main-cart{
+        display: grid;
+        grid-template-areas: 
+        "cart-section1 cart-aside"
+        ;
+        
+        justify-content: space-evenly;
+        align-items: flex-start;
+        // height: 80vh;
+    }
+    
+    .cart-aside h2{
+        text-align: left;
+        }
+        
+    .cart-aside p{
+        margin: 0;
+        padding: 2px;
+    }
+        
+    .total{
+        display: flex;
+        margin: 0 0 10px 10px;
+        align-items: center;
+        justify-content: center;
+    }
+        
+    .total-value{
+        width: 250px;
+        text-align: right;
+        border: solid 3px rgb(255, 255, 255);
+    }
+    
+    /* AGREGO MEDIA QUERIES AL MAIN DEL CONTACT.HTML*/
+    .main-contacto{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        // justify-content: flex-start;
+        margin: 0 0 150px 0;
+    }
+    
+    .formulario{
+        margin: 10px 10px 10px 10px;
+    }
+
+    .div-contact{
+        margin: 10px 10px 10px 10px;
+    }
+    
+    /* AGREGO MEDIA QUERIES AL MAIN DEL MEN.HTML Y WOMEN.HTML*/
+    
+    .main-women{
+        margin: 10px 0 0 0;
+        grid-area: main-women;
+        
+        display: grid;
+        grid-template-areas: 
+        "h2 botonesFiltros"
+        "left-bar section-products"
+        "size-chart size-chart"
+    }
+    
+    .section-products{
+        width: auto;    
+    }
+
+}
