@@ -1,22 +1,11 @@
 
-// const carritoDeCompras = JSON.parse(carritoStorage) || [];
-
-// console.log(carritoDeCompras);
 
 let carritoStorage2 = localStorage.getItem("carritoDeCompras");
 const carritoDeCompras = JSON.parse(carritoStorage2) || [];
-console.log(`INICIO carritoDeCompras`);
-console.log(carritoDeCompras);
-console.log(`FIN carritoDeCompras`);
 
-// const carritoDeCompras = [];
-// console.log(`carritoDeCompras = ${carritoDeCompras}`);
-
-const carritoIndex = (productoId)=>{
-    const contenedorCarrito = document.getElementById("carrito-contenedor")
-    
+const carritoIndex = (productoId)=>{    
      const agregarProductoACarrito = ()=> {
-      let producto = carritoDeCompras.find( producto => producto.id == productoId ) || catalogoHombres.find( producto => producto.id == productoId );
+      let producto = carritoDeCompras.find( producto => producto.id == productoId ) || catalogo.find( producto => producto.id == productoId );
       console.log(producto);
       console.log(carritoDeCompras);
       console.log(`producto.cant = ${producto.cant}`);
@@ -131,26 +120,13 @@ renderizarResumenCompra()
       })
   })
 
+//ELIMINAR PRODUCTO DEL CARRITO.
 
   const eliminarProducto = (productoId)=>{
-    // const contenedorCarrito = document.getElementById("carrito-contenedor")
-
-
      const eliminarProductoDelCarrito = ()=> {
       let producto  = carrito.find( producto => producto.id == productoId )
-      // if (producto.cant == 0) {
-      //   producto.cant = producto.cant +1;
-      //   carritoDeCompras.push(producto)
-      // } else {
-      //   producto.cant = producto.cant +1;
-      // }
-      console.log(`producto.id: ${producto.id}`);
       const indexProductoAEliminar = carrito.map(producto => producto.id).indexOf(producto.id)
-      console.log(`indexProductoAEliminar ${indexProductoAEliminar}`);
       carrito.splice(indexProductoAEliminar,1);
-
-      console.log(carrito);
-      // localStorage.setItem("carritoDeCompras", JSON.stringify(carritoDeCompras))
 
     }
     eliminarProductoDelCarrito()
@@ -160,7 +136,6 @@ renderizarResumenCompra()
     carritoTotal = 0;
 
     for (const producto of carrito) {
-      console.log(`carrito: ${carrito}`);
       renderizarProductoEnCarrito(producto);
       carritoSubtotal = carritoSubtotal + producto.precio * producto.cant;
       carritoEnvio = carritoEnvio + producto.cant * 50;
@@ -178,7 +153,7 @@ renderizarResumenCompra()
 function botonEliminar(producto) {
   const boton = document.getElementById(`eliminar${producto.id}`);
   boton.addEventListener('click', ()=> {
-      Swal.fire({ //Sweet alert con mensaje de que se ha agregado el producto al carrito.
+      Swal.fire({ //Sweet alert con mensaje de que se ha eliminado el producto al carrito.
           position: 'top-end',
           icon: 'success',
           text: `Se eliminó el producto ${producto.nombre} del carrito de compras.`,
@@ -189,7 +164,6 @@ function botonEliminar(producto) {
           // timer: 1500
         })
       eliminarProducto(producto.id);
-  console.log("se apreto el boton eliminar");
 
 })
 }

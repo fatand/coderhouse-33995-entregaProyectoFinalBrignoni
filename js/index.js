@@ -1,10 +1,13 @@
-//JAVASCRIPT
-
 let sectionProductsMen = document.getElementById("sectionProductsMen");
+let sectionProductsWomen = document.getElementById("sectionProductsWomen");
 
+console.log(sectionProductsMen);
+console.log(sectionProductsWomen);
 
-
+const catalogo = [];
 const catalogoHombres = [];
+const catalogoMujeres = [];
+
 
 function botonAgregar(producto) {
     const boton = document.getElementById(`agregar${producto.id}`);
@@ -18,13 +21,23 @@ function botonAgregar(producto) {
             imageWidth: 200,
             imageAlt: `${producto.id}`,
             showConfirmButton: true,
-            // timer: 1500
+            timer: 1500
           })
         carritoIndex(producto.id);
-})
+    })
 }
 
-function renderizarProducto(producto) {
+function renderizarProductoMujer(producto) {
+    let div = document.createElement("div");
+    div.innerHTML = `<img src="../img/${producto.img}" alt="${producto.id}">
+                    <p> ${producto.nombre} </p>
+                    <b> $ ${producto.precio} </b>
+                    <button id="agregar${producto.id}">Agregar al carrito</button>`;
+    div.className = "product-block";
+    sectionProductsWomen.append(div);
+}
+
+function renderizarProductoHombre(producto) {
     let div = document.createElement("div");
     div.innerHTML = `<img src="../img/${producto.img}" alt="${producto.id}">
                     <p> ${producto.nombre} </p>
@@ -34,19 +47,42 @@ function renderizarProducto(producto) {
     sectionProductsMen.append(div);
 }
 
+function evaluarSexoYRenderizar(producto) {
+    if (producto.sexo == "male") {
+        console.log(`id: ${producto.id} es MALE`);
+        catalogoHombres.push(producto);
+        if (sectionProductsMen  != null) {
+            renderizarProductoHombre(producto);
+            botonAgregar(producto);
+        }
+    } else if (producto.sexo == "female") {
+        console.log(`id: ${producto.id} es FEMALE`);
+        catalogoMujeres.push(producto);
+        if (sectionProductsWomen  != null) {
+            renderizarProductoMujer(producto);
+            botonAgregar(producto);
+        }
+    }
+}
+
 const renderizarCatalogo = async () => {
     const respuesta = await fetch("../json/stock.json");
     const data = await respuesta.json();
+    console.log(data);
 
     data.forEach (producto=> {
-        renderizarProducto(producto);
-        catalogoHombres.push(producto);
-        botonAgregar(producto);
-})
+        evaluarSexoYRenderizar(producto)
+        catalogo.push(producto); 
+    })
+/*     console.log("catalogo");
+    console.log(catalogo);
+    console.log("catalogoMujeres");
+    console.log(catalogoMujeres);
+    console.log("catalogoHombres");
+    console.log(catalogoHombres); */
 }
 
 renderizarCatalogo()
-
 
 const filtrosLeftBar = [
     {id: "RecienLlegados", nombre: "Recien llegados"},
@@ -72,26 +108,37 @@ for (const filtro of filtrosLeftBar) {
     ulLeftBar.append(li);
 };
 
+// LIMPIAR HTML DE LA SECCION sectionProductsWomen y sectionProductsMen DEPENDIENDO EN CUAL ESTOY.
+
+function limpiarHTMLSectionProducts() {
+    if (sectionProductsWomen  != null) {
+        sectionProductsWomen.innerHTML = "";
+    } else if(sectionProductsMen  != null) {
+        sectionProductsMen.innerHTML = "";
+    }
+}
+
+// RENDERIZAR PRODUCTOS LUEGO DE APLICAR UN FILTRO
+
+function renderizarFiltros() {
+    limpiarHTMLSectionProducts();
+    for (const producto of catalogo) {
+        evaluarSexoYRenderizar(producto)
+    }
+}
+
 //ORDENA EL CATALOGO DE MAYOR A MENOR PRECIO
 function ordenarMayorMenor() {
-    catalogoHombres.sort((a, b) => {
+    catalogo.sort((a, b) => {
         if(a.precio > b.precio){
            return -1;
         }
-
         if(a.precio < b.precio){
             return 1;
         }
-
         return 0;
     }); //ordena de Mayor a Menor
-
-    sectionProductsMen.innerHTML = "";
-
-    for (const producto of catalogoHombres) {
-        renderizarProducto(producto);
-        botonAgregar(producto);
-    }
+    renderizarFiltros()
 }
 
 let botonMayorMenor = document.getElementById("btnMayorMenor");
@@ -100,106 +147,80 @@ botonMayorMenor.addEventListener("click", ordenarMayorMenor);
 //ORDENA EL CATALOGO DE MENOR A MAYOR PRECIO
 
 function ordenarMenorMayor() {
-    catalogoHombres.sort((a, b) => {
+    catalogo.sort((a, b) => {
         if(a.precio < b.precio){
             return -1;
         }
-        
         if(a.precio > b.precio){
             return 1;
         }
-                return 0;
-    }); //ordena de Menor a Mayor
-        
-    sectionProductsMen.innerHTML = "";
-        
-    for (const producto of catalogoHombres) {
-        renderizarProducto(producto);
-        botonAgregar(producto);
-    }
+        return 0;
+    }); //ordena de Menor a Mayor   
+    renderizarFiltros()
 }
         
 let botonMenorMayor = document.getElementById("btnMenorMayor");
-botonMenorMayor.addEventListener("click", ordenarMenorMayor);    
+botonMenorMayor.addEventListener("click", ordenarMenorMayor); 
 
 //ORDENA EL CATALOGO DE A-Z SEGUN NOMBRE DEL PRODUCTO
 
 function ordenarAZ() {
-    catalogoHombres.sort((a, b) => {
+    catalogo.sort((a, b) => {
         if(a.nombre < b.nombre){
             return -1;
         }
-        
         if(a.nombre > b.nombre){
             return 1;
         }
-                return 0;
-    }); //ordena de A a Z
-        
-    sectionProductsMen.innerHTML = "";
-        
-    for (const producto of catalogoHombres) {
-        renderizarProducto(producto);
-        botonAgregar(producto);
-    }
+        return 0;
+    }); //ordena de A a Z 
+    renderizarFiltros()
 }
         
 let botonAZ = document.getElementById("btnAZ");
-botonAZ.addEventListener("click", ordenarAZ);    
+botonAZ.addEventListener("click", ordenarAZ);   
 
 //RESETEA FILTRO DE ORDEN
 
 function resetearOrden() {
-    catalogoHombres.sort((a, b) => {
+    catalogo.sort((a, b) => {
         if(a.id < b.id){
             return -1;
         }
-        
         if(a.id > b.id){
             return 1;
         }
-                return 0;
+        return 0;
     }); //ordena de Menor a Mayor segun id.
-        
-    sectionProductsMen.innerHTML = "";
-        
-    for (const producto of catalogoHombres) {
-        renderizarProducto(producto);
-        botonAgregar(producto);
-
-    }
+    renderizarFiltros()
 }
         
 let botonResetear = document.getElementById("btnResetear");
-botonResetear.addEventListener("click", resetearOrden);    
+botonResetear.addEventListener("click", resetearOrden);   
 
 //FILTRO RECIEN LLEGADOS
 
 function filtroRecienLlegados() {
-    sectionProductsMen.innerHTML = "";
-    for (const producto of catalogoHombres) {
+    limpiarHTMLSectionProducts();
+    for (const producto of catalogo) {
         if (producto.recienLlegado) {
-            renderizarProducto(producto);
-            botonAgregar(producto);
-        };
+            evaluarSexoYRenderizar(producto)
+        }
     }
-    
 }
-        
+
 let botonRecienLlegados = document.getElementById("btnRecienLlegados");
 botonRecienLlegados.addEventListener("click", filtroRecienLlegados);    
 
 //FILTRO CATEGORIA REMERAS
 
 function filtroCategoriaRemeras() {
-    sectionProductsMen.innerHTML = "";
-    for (const producto of catalogoHombres) {
+    limpiarHTMLSectionProducts();
+    for (const producto of catalogo) {
         if (producto.categoria === "Remeras") {
-            renderizarProducto(producto);
-            botonAgregar(producto);
+            evaluarSexoYRenderizar(producto)
         };
-    }
-    
+    } 
 }
         
 let botonCategoriaRemeras = document.getElementById("btnCategoriaRemeras");
@@ -208,14 +229,12 @@ botonCategoriaRemeras.addEventListener("click", filtroCategoriaRemeras);
 //FILTRO CATEGORIA SHORTS
 
 function filtroCategoriaShorts() {
-    sectionProductsMen.innerHTML = "";
-    for (const producto of catalogoHombres) {
+    limpiarHTMLSectionProducts();
+    for (const producto of catalogo) {
         if (producto.categoria === "Shorts") {
-            renderizarProducto(producto);
-            botonAgregar(producto);
+            evaluarSexoYRenderizar(producto)
         };
     }
-    
 }
         
 let botonCategoriaShorts = document.getElementById("btnCategoriaShorts");
@@ -224,14 +243,12 @@ botonCategoriaShorts.addEventListener("click", filtroCategoriaShorts);
 //FILTRO CATEGORIA BUZOS
 
 function filtroCategoriaBuzos() {
-    sectionProductsMen.innerHTML = "";
-    for (const producto of catalogoHombres) {
+    limpiarHTMLSectionProducts();
+    for (const producto of catalogo) {
         if (producto.categoria === "Buzos") {
-            renderizarProducto(producto);
-            botonAgregar(producto);
+            evaluarSexoYRenderizar(producto)
         };
     }
-    
 }
         
 let botonCategoriaBuzos = document.getElementById("btnCategoriaBuzos");
@@ -240,11 +257,10 @@ botonCategoriaBuzos.addEventListener("click", filtroCategoriaBuzos);
 //FILTRO CATEGORIA ACCESORIOS
 
 function filtroCategoriaAccesorios() {
-    sectionProductsMen.innerHTML = "";
-    for (const producto of catalogoHombres) {
+    limpiarHTMLSectionProducts();
+    for (const producto of catalogo) {
         if (producto.categoria === "Accesorios") {
-            renderizarProducto(producto);
-            botonAgregar(producto);
+            evaluarSexoYRenderizar(producto)
         };
     }
 }
@@ -255,11 +271,10 @@ botonCategoriaAccesorios.addEventListener("click", filtroCategoriaAccesorios);
 //FILTRO SALE
 
 function filtroSale() {
-    sectionProductsMen.innerHTML = "";
-    for (const producto of catalogoHombres) {
+    limpiarHTMLSectionProducts();
+    for (const producto of catalogo) {
         if (producto.sale) {
-            renderizarProducto(producto);
-            botonAgregar(producto);
+            evaluarSexoYRenderizar(producto)
         };
     }
 }

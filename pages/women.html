@@ -81,9 +81,9 @@
     <main class="main-women">
         <h2 class="h2-women">Mujeres - Productos</h2>
         <section class="left-bar">
-
-            <ul>
-                <!-- Los links no tienen destino ya que no se ha dado aun en el curso como filtrar los productos -->
+            <ul id="ulLeftBar">
+            </ul>
+<!--             <ul>
                 <li>
                     <a href="">Recién llegados</a> 
                 </li>
@@ -106,12 +106,20 @@
                     <a href=""  class="left-bar-sale">Sale</a> 
                 </li>
 
-            </ul>
+            </ul> -->
+        
         </section>
 
-        <section class="section-products">
+        <section id="botonesFiltros" class="botonesFiltros"> 
+            <button id="btnMayorMenor">Precio: Mayor a menor</button>
+            <button id="btnMenorMayor">Precio: Menor a mayor</button>
+            <button id="btnAZ">A a Z</button>
+            <button id="btnResetear">Resetear orden</button>
+        </section>
+
+<!--         <section class="section-products">
             
-            <div class="product-block">
+             <div class="product-block">
                 <img src="../img/women-product1.jpg" class="img-fluid img-responsive" alt="Remera negra">
                 <p>Remera negra</p>
                 <p>$ 790</p>
@@ -180,8 +188,13 @@
                 <img src="../img/women-product6.jpg" alt="Medias">
                 <p>Medias</p>
                 <p>$ 450</p>
-            </div>
+            </div> -->
 
+
+        <div id="carrito-contenedor"></div>
+
+        <section class="section-products" id="sectionProductsWomen"> <!--  En este div se va a generar el catalogo a partir de JavaScript -->            
+        </section>
             
         </section>
 
@@ -268,8 +281,13 @@
     </footer>
     
     <!-- Script de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- SCRIPT SWEET ALERT -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- SCRIPTS PROPIOS -->
+        <!-- <script src="../js/prueba.js"></script> -->
+        <!-- <script src="../js/stock.js"></script> -->
+        <script src="../js/carritoIndex.js"></script>
+        <script src="../js/index.js"></script>
 </body>
 </html>
