@@ -616,7 +616,8 @@ th {
     .main-women .botonesFiltros {
       justify-content: right; }
     .main-women .ulLeftBar {
-      flex-direction: column; }
+      flex-direction: column;
+      flex-wrap: wrap; }
     .main-women .left-bar {
       align-items: flex-start; }
   .section-products {
