@@ -414,7 +414,11 @@ p{
         display: flex;
         flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
 
+        li{
+            margin: 2px;
+        }
     }
 
     .left-bar{
@@ -672,16 +676,17 @@ td, th {
     
         .ulLeftBar{
             flex-direction: column;
-            flex-direction: wrap;
+            
         }
 
         .left-bar{
-            align-items: left;
+            align-items: flex-start;
         }
     }
     
     .section-products{
-        width: auto;    
+        width: auto;   
+        justify-content: flex-start;
     }
 
 

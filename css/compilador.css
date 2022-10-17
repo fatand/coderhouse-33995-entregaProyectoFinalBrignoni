@@ -431,7 +431,10 @@ p {
   .main-women .ulLeftBar {
     display: flex;
     flex-direction: row;
-    justify-content: center; }
+    justify-content: center;
+    flex-wrap: wrap; }
+    .main-women .ulLeftBar li {
+      margin: 2px; }
   .main-women .left-bar {
     align-items: center; }
 
@@ -613,12 +616,12 @@ th {
     .main-women .botonesFiltros {
       justify-content: right; }
     .main-women .ulLeftBar {
-      flex-direction: column;
-      flex-direction: wrap; }
+      flex-direction: column; }
     .main-women .left-bar {
-      align-items: left; }
+      align-items: flex-start; }
   .section-products {
-    width: auto; } }
+    width: auto;
+    justify-content: flex-start; } }
 
 footer {
   grid-area: footer;
