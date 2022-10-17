@@ -394,14 +394,27 @@ p{
 
     display: grid;
     grid-template-areas: 
-    "h2 botonesFiltros"
-    "left-bar section-products"
-    "size-chart size-chart";
+    "h2"
+    "botonesFiltros"
+    "left-bar"
+    "section-products"
+    "size-chart";
     h2{
+        text-align: center;
         padding: 0 0 0 10px;
         margin: 10px;
         grid-area: h2;
     }
+    .botonesFiltros{
+        justify-content: center;
+        // font-size: 1em;
+    }
+
+    .ulLeftBar{
+        display: flex;
+        flex-direction: row;
+    }
+
     
 }
 
@@ -639,18 +652,29 @@ td, th {
     /* AGREGO MEDIA QUERIES AL MAIN DEL MEN.HTML Y WOMEN.HTML*/
     
     .main-women{
-        margin: 10px 0 0 0;
-        grid-area: main-women;
-        
-        display: grid;
         grid-template-areas: 
         "h2 botonesFiltros"
         "left-bar section-products"
-        "size-chart size-chart"
+        "size-chart size-chart";
+
+        h2{
+            text-align: left;
+        }
+
+        .botonesFiltros{
+            justify-content: right;
+            // font-size: 1em;
+        }
+    
+        .ulLeftBar{
+            flex-direction: column;
+            flex-direction: wrap;
+        }
     }
     
     .section-products{
         width: auto;    
     }
+
 
 }

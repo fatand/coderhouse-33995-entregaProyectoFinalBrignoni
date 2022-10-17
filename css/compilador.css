@@ -420,11 +420,17 @@ p {
   margin: 10px 0 0 0;
   grid-area: main-women;
   display: grid;
-  grid-template-areas: "h2 botonesFiltros" "left-bar section-products" "size-chart size-chart"; }
+  grid-template-areas: "h2" "botonesFiltros" "left-bar" "section-products" "size-chart"; }
   .main-women h2 {
+    text-align: center;
     padding: 0 0 0 10px;
     margin: 10px;
     grid-area: h2; }
+  .main-women .botonesFiltros {
+    justify-content: center; }
+  .main-women .ulLeftBar {
+    display: flex;
+    flex-direction: row; }
 
 .botonesFiltros {
   grid-area: botonesFiltros;
@@ -598,10 +604,14 @@ th {
     margin: 10px 10px 10px 10px; }
   /* AGREGO MEDIA QUERIES AL MAIN DEL MEN.HTML Y WOMEN.HTML*/
   .main-women {
-    margin: 10px 0 0 0;
-    grid-area: main-women;
-    display: grid;
     grid-template-areas: "h2 botonesFiltros" "left-bar section-products" "size-chart size-chart"; }
+    .main-women h2 {
+      text-align: left; }
+    .main-women .botonesFiltros {
+      justify-content: right; }
+    .main-women .ulLeftBar {
+      flex-direction: column;
+      flex-direction: wrap; }
   .section-products {
     width: auto; } }
 
