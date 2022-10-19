@@ -1,13 +1,14 @@
+//index.js
+
 let sectionProductsMen = document.getElementById("sectionProductsMen");
 let sectionProductsWomen = document.getElementById("sectionProductsWomen");
-
+/* 
 console.log(sectionProductsMen);
-console.log(sectionProductsWomen);
+console.log(sectionProductsWomen); */
 
 const catalogo = [];
 const catalogoHombres = [];
 const catalogoMujeres = [];
-
 
 function botonAgregar(producto) {
     const boton = document.getElementById(`agregar${producto.id}`);
@@ -49,14 +50,12 @@ function renderizarProductoHombre(producto) {
 
 function evaluarSexoYRenderizar(producto) {
     if (producto.sexo == "male") {
-        console.log(`id: ${producto.id} es MALE`);
         catalogoHombres.push(producto);
         if (sectionProductsMen  != null) {
             renderizarProductoHombre(producto);
             botonAgregar(producto);
         }
     } else if (producto.sexo == "female") {
-        console.log(`id: ${producto.id} es FEMALE`);
         catalogoMujeres.push(producto);
         if (sectionProductsWomen  != null) {
             renderizarProductoMujer(producto);
@@ -66,20 +65,13 @@ function evaluarSexoYRenderizar(producto) {
 }
 
 const renderizarCatalogo = async () => {
-    const respuesta = await fetch("../json/stock.json");
+    const respuesta = await fetch("../json/stock.json"); //Fetch del .json
     const data = await respuesta.json();
-    console.log(data);
 
     data.forEach (producto=> {
         evaluarSexoYRenderizar(producto)
         catalogo.push(producto); 
     })
-/*     console.log("catalogo");
-    console.log(catalogo);
-    console.log("catalogoMujeres");
-    console.log(catalogoMujeres);
-    console.log("catalogoHombres");
-    console.log(catalogoHombres); */
 }
 
 renderizarCatalogo()
@@ -97,13 +89,9 @@ const filtrosLeftBar = [
 for (const filtro of filtrosLeftBar) {
     let li = document.createElement("li");
     if (filtro.nombre === "Sale") {
-        li.innerHTML = `
-        <button id="btn${filtro.id}" class="left-bar-sale">${filtro.nombre}</button>
-        `;
+        li.innerHTML = `<button id="btn${filtro.id}" class="left-bar-sale">${filtro.nombre}</button>`;
     }else{
-        li.innerHTML = `
-        <button id="btn${filtro.id}">${filtro.nombre}</button>
-        `;
+        li.innerHTML = `<button id="btn${filtro.id}">${filtro.nombre}</button>`;
     }
     ulLeftBar.append(li);
 };
